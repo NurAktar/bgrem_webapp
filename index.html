@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RemoveBG</title>
+</head>
+<body>
+    <input type="file" name="upload" id="upload"  accept=".jpg, .png, .jpeg, .webp">
+    <button type="button" onclick="uploadFile()">Upload</button>
+    <img id="processedImage" style="display:none;" alt="Processed Image">
+</body>
+<script>
+    function uploadFile() {
+      var inputElement = document.getElementById('upload');
+      var file = inputElement.files[0];
+  
+    if (file) {
+        // You can perform additional actions with the file here
+        console.log('File selected:', file);
+  
+        // For demonstration purposes, you can use the Fetch API to upload the file to a server
+        var formData = new FormData();
+        formData.append('file', file);
+  
+        fetch('https://nuraktar.pythonanywhere.com/rembg_file', {
+          method: 'POST',
+          body: formData,
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.blob();
+        })
+        .then(blob => {
+            // Create an object URL for the blob
+            const imageUrl = URL.createObjectURL(blob);
+
+            // Display the processed image
+            const processedImage = document.getElementById('processedImage');
+            processedImage.src = imageUrl;
+            processedImage.style.display = 'block';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+    }
+</script>
+</html>
