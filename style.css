@@ -8,6 +8,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: flex-start;
     height: calc(100vh - 50px);
     background-color: #292929;
     background-image: url("https://raw.githubusercontent.com/NurAktar/test-images/main/icon-removebg-preview.png");
@@ -88,7 +89,7 @@ input::file-selector-button:hover{
     height: auto;
 }
 #nuraktar{
-    color: white;
+    color: rgb(197, 197, 197);
     font-family: jost;
     text-align:center;
     font-size: 13px;
