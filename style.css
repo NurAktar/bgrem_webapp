@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+*,html{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100vh;
+    background-color: #292929;
+    background-image: url("https://raw.githubusercontent.com/NurAktar/test-images/main/icon-removebg-preview.png");
+    background-size:  500px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#processedImage{
+    max-width: 90%;
+    max-height: 100%;
+    object-fit: contain;
+}
+.menubar{
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    height: 50px;
+    background-color: black;
+    color: white;
+    font-size: 24px;
+    font-family: jost;
+}
+.menubar input{
+    flex: 2;
+    cursor: pointer;
+    background-color: rgb(0, 0, 0);
+    font-family: jost;
+    font-size: 16px;
+    transition: 0.3s;
+}
+.menubar input:hover{
+    background-color: #0f0f0f;
+}
+.menubar button{
+    cursor: pointer;
+    flex: 1;
+    background-color: #023b00;
+    color: rgb(182, 182, 182);
+    border: 1px solid rgb(82, 82, 82);
+    border-radius: 3px;
+    font-family: jost;
+    font-size: 19px;
+    transition: 0.3s;
+}
+.menubar button:hover{
+    background-color: #035e00;
+}
+input::file-selector-button{
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: jost;
+    text-align: center;
+    height: 100%;
+    width: 150px;
+    font-weight: bold;
+    color: #007a06;
+    background-color: #000000;
+    padding: 5px;
+    border: 1px solid rgb(99, 99, 99);
+    border-radius: 55px;
+}
+input::file-selector-button:hover{
+    background-color: #ffffff;
+}
+.loading{
+    display: none;
+    z-index: 2;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000077;
+}
+.loading img{
+    width: 50px;
+    height: auto;
+}
+#nuraktar{
+    color: white;
+    font-family: jost;
+    text-align:center;
+    font-size: 13px;
+}

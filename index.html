@@ -3,17 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>RemoveBG</title>
+    <meta property="og:title" content="RemoveBG" />
+    <meta property="og:image" content="meta.png" />
+    <meta property="og:image" itemprop="image" content="meta.png">
 </head>
 <body>
-    <input type="file" name="upload" id="upload"  accept=".jpg, .png, .jpeg, .webp">
-    <button type="button" onclick="uploadFile()">Upload</button>
+    <span id="nuraktar">Created by Nur Aktar</span>
+    <div id="loading" class="loading">
+        <img src="loading2.gif" alt="Loading...">
+    </div>
+    <div class="menubar">
+        <input type="file" name="upload" id="upload"  accept=".jpg, .png, .jpeg, .webp">
+        <button type="button" onclick="uploadFile()">Upload</button>
+    </div>
     <img id="processedImage" style="display:none;" alt="Processed Image">
 </body>
 <script>
     function uploadFile() {
-      var inputElement = document.getElementById('upload');
-      var file = inputElement.files[0];
+        document.getElementById("loading").style.display = "flex";
+         var inputElement = document.getElementById('upload');
+        var file = inputElement.files[0];
   
     if (file) {
         // You can perform additional actions with the file here
@@ -41,10 +52,15 @@
             const processedImage = document.getElementById('processedImage');
             processedImage.src = imageUrl;
             processedImage.style.display = 'block';
+            document.body.style ="background-color:white; background-image:none;"
+            document.getElementById("loading").style.display = "none";
         })
         .catch(error => {
             console.error('Error:', error);
         });
+    }
+    else{
+        document.getElementById("loading").style.display = "none";
     }
     }
 </script>
